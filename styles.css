@@ -4,7 +4,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f0f0f0;
+    background-color: #f0f0f0; /* Light gray background */
     font-family: Arial, sans-serif;
 }
 
@@ -12,21 +12,30 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #fff; /* White background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #333; /* Dark gray text */
 }
 
 #game-area {
     width: 400px;
     height: 300px;
-    border: 2px solid #333;
-    background-color: #fff;
+    border: 2px solid #ccc; /* Light gray border */
+    background-color: #f8f8f8; /* Light gray background */
     position: relative;
     margin-bottom: 20px;
-    overflow: hidden; 
+    overflow: hidden;
+    border-radius: 8px;
 }
 
 .captcha-image {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     position: absolute;
     cursor: pointer;
     transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
@@ -38,20 +47,21 @@ body {
 }
 
 .target {
-    border: 2px solid #ff6347; 
+    border: 2px solid #ffb3b3; /* Light red border for target */
 }
 
 #check-btn {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #007bff;
-    color: #fff;
+    background-color: #66b3ff; /* Light blue background */
+    color: #fff; /* White text */
     border: none;
     border-radius: 4px;
     transition: background-color 0.3s ease;
+    outline: none; /* Remove default focus outline */
 }
 
 #check-btn:hover {
-    background-color: #0056b3;
+    background-color: #3385ff; /* Darker blue on hover */
 }
