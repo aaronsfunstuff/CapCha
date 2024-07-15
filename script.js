@@ -1,17 +1,19 @@
 document.addEventListener('DOMContentLoaded', function() {
     const gameArea = document.getElementById('game-area');
     const checkBtn = document.getElementById('check-btn');
-    const imageCount = 5; // Number of images
+    const imageCount = 7; // Number of images
     const images = [];
     let clickedCarImages = [];
 
     // Real image URLs (replace with your actual image paths)
     const realImageUrls = [
         'https://www.usnews.com/object/image/0000018d-fbc4-ddec-a3fd-fbef35f20000/24my-brzts-sicily-14.jpg?update-time=1709325955761&size=responsive640',
-        'https://img.canarymedia.com/content/uploads/eddie-bugajewski-hS7Jc3JmiBo-unsplash.jpeg?auto=compress,format&crop=focalpoint&fit=crop&fp-x=0.5&fp-y=0.5&h=418&q=82&w=800&s=1a0f10f47976d99f81bd39dfff6211bf',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1dzAY9vxSYgd7Zz6Aji9j2-LaG3-BF5iw5w&s',
         'https://trimet.org/bus/img/media.jpg',
         'https://i.abcnewsfe.com/a/29ad17e0-4dec-488a-9c27-bdc2424ba5a5/electric-plane-ht-ml-240110_1704902584341_hpMain_16x9.jpg?w=992',
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS869IPfEZUL1r3qfQCctsbWg56jibypFZjlg&s'
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS869IPfEZUL1r3qfQCctsbWg56jibypFZjlg&s',
+      'https://cdn.pixabay.com/photo/2024/03/01/19/57/airbus-8607152_1280.jpg',
+    'https://media.istockphoto.com/id/178489146/photo/high-speed-train.jpg?s=612x612&w=0&k=20&c=j9WfvXQYG5IROhtp0tHWExvLlhAUaCqQNYOGnrH8TvA='
     ];
 
     // Create images
