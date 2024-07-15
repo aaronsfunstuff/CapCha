@@ -4,17 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CAPTCHA Game</title>
-    <link rel="stylesheet" href="homepage.css"> 
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="homepage.css">
 </head>
 <body>
     <header>
         <nav>
-            <ul>
+            <ul class="nav-menu">
                 <li><a href="#about">About</a></li>
                 <li><a href="#features">Features</a></li>
                 <li><a href="#how-to-play">How to Play</a></li>
-                <li><a href="index.html">Play Now</a></li>
+                <li><a href="game.html">Play Now</a></li>
             </ul>
+            <button class="nav-toggle">Menu</button>
         </nav>
     </header>
 
@@ -22,10 +24,10 @@
         <div class="hero-content">
             <h1>Welcome to CAPTCHA Game</h1>
             <p>A fun and interactive way to prove you're human!</p>
-            <a href="index.html" class="cta-button">Play Now</a>
+            <a href="game.html" class="cta-button">Play Now</a>
         </div>
         <div class="hero-image">
-            <img src="https://addons-media.operacdn.com/media/CACHE/images/extensions/73/234073/2.0.1-rev1/images/9e877525eded44bce3865b656247ad23/20d5aa6df93f287bdce4a81ceca11078.jpg" alt="Game Screenshot">
+            <img src="https://via.placeholder.com/400x300" alt="Game Screenshot">
         </div>
     </section>
 
@@ -60,11 +62,35 @@
         </div>
     </section>
 
+    <section class="section">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="cta-button">Submit</button>
+            </form>
+        </div>
+    </section>
+
+
     <footer>
-        <p>&copy; 2024 CAPTCHA Game. All rights reserved.</p>
+        <div class="container">
+            <p>&copy; 2024 CAPTCHA Game. All rights reserved.</p>
+        </div>
     </footer>
 
-    <script src="homepage.js"></script> <!-- JavaScript for homepage interactions -->
+    <script src="homepage.js"></script>
 </body>
 </html>
 
