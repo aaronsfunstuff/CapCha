@@ -18,20 +18,24 @@ header {
 }
 
 header nav {
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-header nav ul {
+header nav .nav-menu {
     list-style-type: none;
     padding: 0;
+    display: flex;
 }
 
-header nav ul li {
-    display: inline;
+header nav .nav-menu li {
     margin-right: 20px;
 }
 
-header nav ul li a {
+header nav .nav-menu li a {
     text-decoration: none;
     color: #fff;
     font-weight: bold;
@@ -39,8 +43,23 @@ header nav ul li a {
     transition: color 0.3s ease;
 }
 
-header nav ul li a:hover {
+header nav .nav-menu li a:hover {
     color: #ff6347; /* Orange color on hover */
+}
+
+header nav .nav-toggle {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+header nav .nav-toggle:hover {
+    background-color: #0056b3;
 }
 
 .hero {
@@ -76,4 +95,77 @@ header nav ul li a:hover {
     display: inline-block;
     padding: 15px 30px;
     font-size: 24px;
-    background-color: #0056b3; /* Dar
+    background-color: #0056b3; /* Darker blue background */
+    color: #fff; /* White text */
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #004085; /* Dark blue on hover */
+}
+
+.section {
+    padding: 80px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.container h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.container p {
+    font-size: 20px;
+    line-height: 1.8;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+form textarea {
+    resize: vertical;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    flex-shrink: 0; /* Ensure footer does not shrink */
+}
