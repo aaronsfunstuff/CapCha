@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const checkBtn = document.getElementById('check-btn');
     const imageCount = 5; // Number of images
     const images = [];
-    let targetIndex;
+    let clickedCarImages = [];
 
     // Real image URLs (replace with your actual image paths)
     const realImageUrls = [
@@ -24,54 +24,66 @@ document.addEventListener('DOMContentLoaded', function() {
         images.push(image);
     }
 
-    // Choose Image 1 as the target
-    targetIndex = 0; // Index of Image 1
-
-    // Position all images randomly within game area
-    positionImages();
+    designateCarImages(); // Designate images 1 and 2 as car images
+    positionImages(); // Position images initially
 
     // Event listener for image click
     images.forEach((image, index) => {
         image.addEventListener('click', () => {
-            images.forEach(img => img.classList.remove('target')); // Clear previous target
-            image.classList.add('target'); // Highlight clicked image as the target
-            targetIndex = index; // Update target index
+            if (!clickedCarImages.includes(image)) {
+                image.classList.add('target'); // Highlight clicked image
+                clickedCarImages.push(image); // Add clicked image to array
+            }
         });
     });
 
     // Event listener for check button
     checkBtn.addEventListener('click', () => {
-        if (targetIndex === 0 && images[targetIndex].classList.contains('target')) {
-            alert('Correct! You clicked the correct image.');
+        if (clickedCarImages.length === 2 && clickedCarImages.every(img => img.classList.contains('car'))) {
+            alert('Correct! You clicked both car images.');
         } else {
-            alert('Incorrect! Try again.');
+            alert('Incorrect! Click both car images to verify.');
         }
         resetGame();
     });
 
     // Function to reset the game
     function resetGame() {
-        images.forEach(img => img.classList.remove('target')); // Remove all highlights
-        targetIndex = 0; // Reset target to Image 1
-        images[targetIndex].classList.add('target'); // Highlight Image 1 again
-
-        // Re-position images randomly within game area
-        positionImages();
+        images.forEach(img => {
+            img.classList.remove('target');
+        });
+        clickedCarImages = [];
+        shuffleImages(); // Shuffle images on reset
+        positionImages(); // Re-position images after shuffling
     }
 
-    // Function to position images randomly without overlapping
+    // Function to designate images 1 and 2 as cars
+    function designateCarImages() {
+        images[0].classList.add('car'); // Image 1 as car
+        images[1].classList.add('car'); // Image 2 as car
+    }
+
+    // Function to shuffle images
+    function shuffleImages() {
+        images.sort(() => Math.random() - 0.5); // Shuffle array of images
+        images.forEach((image, index) => {
+            gameArea.appendChild(image); // Append shuffled images to game area
+        });
+    }
+
+    // Function to position images without overlapping
     function positionImages() {
         const positions = [];
-        const maxWidth = gameArea.clientWidth;
-        const maxHeight = gameArea.clientHeight;
+        const maxWidth = gameArea.clientWidth - 100; // Adjust for image width
+        const maxHeight = gameArea.clientHeight - 100; // Adjust for image height
         const imageWidth = images[0].clientWidth;
         const imageHeight = images[0].clientHeight;
 
         images.forEach((image, index) => {
             let x, y;
             do {
-                x = Math.random() * (maxWidth - imageWidth);
-                y = Math.random() * (maxHeight - imageHeight);
+                x = Math.random() * maxWidth;
+                y = Math.random() * maxHeight;
             } while (isOverlapping(x, y, imageWidth, imageHeight, positions));
 
             image.style.left = `${x}px`;
