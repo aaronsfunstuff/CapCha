@@ -4,34 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CAPTCHA Game</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="homepage.css"> 
 </head>
 <body>
-    <div class="hero">
-        <h1>Welcome to CAPTCHA Game</h1>
-        <p>A fun and interactive way to test your image selection skills!</p>
-        <a href="index.html" class="cta-button">Play Now</a>
-    </div>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-to-play">How to Play</a></li>
+                <li><a href="index.html">Play Now</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <div class="container">
-        <h2>About the Game</h2>
-        <p>This CAPTCHA game challenges you to click on specific car images to verify your human identity. It's a simple yet engaging activity to improve user interaction with web applications.</p>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to CAPTCHA Game</h1>
+            <p>A fun and interactive way to prove you're human!</p>
+            <a href="index.html" class="cta-button">Play Now</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://addons-media.operacdn.com/media/CACHE/images/extensions/73/234073/2.0.1-rev1/images/9e877525eded44bce3865b656247ad23/20d5aa6df93f287bdce4a81ceca11078.jpg" alt="Game Screenshot">
+        </div>
+    </section>
 
-        <h2>Features</h2>
-        <ul>
-            <li>Click on car images to select them.</li>
-            <li>Verify your selection with the "Check Answer" button.</li>
-            <li>Reset the game by clicking on any image again.</li>
-        </ul>
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About the Game</h2>
+            <p>This CAPTCHA game challenges you to select specific images to prove you're human. It's a whimsical take on traditional CAPTCHA tests, making it both fun and functional for users.</p>
+        </div>
+    </section>
 
-        <h2>How to Play</h2>
-        <ol>
-            <li>Click the "Play Now" button above or visit the game page.</li>
-            <li>Click on the displayed car images to select them.</li>
-            <li>Click the "Check Answer" button to verify your selection.</li>
-            <li>Enjoy the game and challenge yourself!</li>
-        </ol>
-    </div>
+    <section id="features" class="section">
+        <div class="container">
+            <h2>Features</h2>
+            <ul>
+                <li>Interactive image selection</li>
+                <li>User-friendly interface</li>
+                <li>Engaging gameplay</li>
+                <li>Easy-to-understand instructions</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="how-to-play" class="section">
+        <div class="container">
+            <h2>How to Play</h2>
+            <ol>
+                <li>Click the "Play Now" button.</li>
+                <li>Select the correct images as instructed.</li>
+                <li>Verify your selections by clicking "Check Answer".</li>
+                <li>Enjoy proving you're not a robot!</li>
+            </ol>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 CAPTCHA Game. All rights reserved.</p>
+    </footer>
+
+    <script src="homepage.js"></script> <!-- JavaScript for homepage interactions -->
 </body>
 </html>
+
