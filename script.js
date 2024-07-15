@@ -24,14 +24,11 @@ document.addEventListener('DOMContentLoaded', function() {
         images.push(image);
     }
 
-    // Choose a random image as the target
-    targetIndex = Math.floor(Math.random() * imageCount);
-    images[targetIndex].classList.add('target');
+    // Choose Image 1 as the target
+    targetIndex = 0; // Index of Image 1
 
     // Position all images randomly within game area
-    images.forEach(image => {
-        generateRandomPosition(image);
-    });
+    positionImages();
 
     // Event listener for image click
     images.forEach((image, index) => {
@@ -44,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Event listener for check button
     checkBtn.addEventListener('click', () => {
-        if (images[targetIndex].classList.contains('target')) {
+        if (targetIndex === 0 && images[targetIndex].classList.contains('target')) {
             alert('Correct! You clicked the correct image.');
         } else {
             alert('Incorrect! Try again.');
@@ -55,35 +52,44 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to reset the game
     function resetGame() {
         images.forEach(img => img.classList.remove('target')); // Remove all highlights
-        targetIndex = Math.floor(Math.random() * imageCount); // Choose a new target
-        images[targetIndex].classList.add('target'); // Highlight the new target
+        targetIndex = 0; // Reset target to Image 1
+        images[targetIndex].classList.add('target'); // Highlight Image 1 again
 
         // Re-position images randomly within game area
-        images.forEach(image => {
-            generateRandomPosition(image);
-            image.style.opacity = 1; // Reset opacity
+        positionImages();
+    }
+
+    // Function to position images randomly without overlapping
+    function positionImages() {
+        const positions = [];
+        const maxWidth = gameArea.clientWidth;
+        const maxHeight = gameArea.clientHeight;
+        const imageWidth = images[0].clientWidth;
+        const imageHeight = images[0].clientHeight;
+
+        images.forEach((image, index) => {
+            let x, y;
+            do {
+                x = Math.random() * (maxWidth - imageWidth);
+                y = Math.random() * (maxHeight - imageHeight);
+            } while (isOverlapping(x, y, imageWidth, imageHeight, positions));
+
+            image.style.left = `${x}px`;
+            image.style.top = `${y}px`;
+            positions.push({ x, y, width: imageWidth, height: imageHeight });
         });
     }
 
-    // Optional: Add a slight delay for visual appeal
-    setTimeout(() => {
-        images.forEach(image => {
-            image.style.transitionDelay = `${Math.random() * 0.5}s`;
-            image.style.opacity = 1;
-        });
-    }, 100);
+    // Function to check if the new image position overlaps with existing positions
+    function isOverlapping(x, y, width, height, positions) {
+        for (let pos of positions) {
+            if (x < pos.x + pos.width &&
+                x + width > pos.x &&
+                y < pos.y + pos.height &&
+                y + height > pos.y) {
+                return true; // Overlaps
+            }
+        }
+        return false; // Does not overlap
+    }
 });
-
-// Function to generate random position within game area
-function generateRandomPosition(image) {
-    const gameArea = document.getElementById('game-area');
-    const maxX = gameArea.clientWidth - image.clientWidth;
-    const maxY = gameArea.clientHeight - image.clientHeight;
-
-    const randomX = Math.floor(Math.random() * maxX);
-    const randomY = Math.floor(Math.random() * maxY);
-
-    image.style.top = `${randomY}px`;
-    image.style.left = `${randomX}px`;
-}
-
